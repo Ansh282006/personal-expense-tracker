@@ -1,0 +1,68 @@
+/* Custom styles for the Expense Tracker */
+
+body {
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    color: #34495e;
+    font-weight: 600;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* Table Styling */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    border-bottom: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+    cursor: default;
+}
+
+/* Custom Badge for Categories */
+.badge {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #6c757d !important;
+}
+
+/* Total Spent Highlight */
+h4.text-end {
+    color: #27ae60;
+    font-weight: 700;
+    background: #e8f8f5;
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    float: right;
+    margin-top: 15px !important;
+}
