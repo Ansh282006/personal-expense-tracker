@@ -1,68 +1,181 @@
-/* Custom styles for the Expense Tracker */
+/* --- 3D Modern Theme --- */
+:root {
+    --primary-color: #1411cb;
+    --secondary-color: #eaf0fa;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
 
 body {
-    background-color: #f4f7f6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #ffffff;
 }
 
-h1 {
-    color: #2c3e50;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.card {
-    border: none;
-    border-radius: 12px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-}
-
-.card-title {
-    color: #34495e;
-    font-weight: 600;
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 10px;
-}
-
-/* Table Styling */
-.table {
-    border-radius: 8px;
+/* --- Animated Background Shapes --- */
+.bg-shapes {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
     overflow: hidden;
 }
 
-.table thead th {
-    border-bottom: none;
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 10s infinite ease-in-out alternate;
+}
+
+.shape-1 { width: 300px; height: 300px; background: #11cb2a; top: -50px; left: -50px; }
+.shape-2 { width: 400px; height: 400px; background: #2575fc; bottom: -100px; right: -100px; animation-delay: -3s; }
+.shape-3 { width: 200px; height: 200px; background: #2200ff; top: 40%; left: 50%; animation-delay: -6s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, 50px) scale(1.1); }
+}
+
+/* --- Typography --- */
+.title-3d {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0px 5px 15px rgba(17, 26, 203, 0.8), 0px 10px 20px rgba(37, 117, 252, 0.5);
+    animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.02); }
+}
+
+/* --- 3D Glassmorphism Cards --- */
+.tilt-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 20px !important;
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tilt-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(37, 117, 252, 0.4);
+}
+
+.card-title {
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+    transform: translateZ(30px); /* Pushes text forward in 3D space */
+}
+
+/* --- Form Inputs --- */
+.glass-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    transform: translateZ(20px);
+}
+
+.glass-input::placeholder { color: rgba(255, 255, 255, 0.6); }
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 0 15px rgba(37, 117, 252, 0.5) !important;
+    outline: none;
+}
+
+/* --- 3D Pushable Button --- */
+.btn-3d {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 0 #1a1a2e, 0 10px 15px rgba(0, 0, 0, 0.4);
+    transform: translateZ(20px);
+}
+
+.btn-3d:hover {
+    color: white;
+    transform: translateY(-2px) translateZ(20px);
+    box-shadow: 0 8px 0 #1a1a2e, 0 15px 20px rgba(0, 0, 0, 0.6);
+}
+
+.btn-3d:active {
+    transform: translateY(4px) translateZ(20px);
+    box-shadow: 0 2px 0 #1a1a2e, 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Table Styles --- */
+.table-glass {
+    background: transparent !important;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table-glass thead th {
+    border: none;
+    color: #a0a0a0;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
-.table tbody tr:hover {
-    background-color: #f8f9fa;
-    cursor: default;
+.table-glass tbody tr {
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+    transform: translateZ(10px);
 }
 
-/* Custom Badge for Categories */
-.badge {
-    font-size: 0.85rem;
-    padding: 6px 10px;
-    border-radius: 6px;
-    background-color: #6c757d !important;
+.table-glass tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.01) translateZ(15px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Total Spent Highlight */
-h4.text-end {
-    color: #27ae60;
-    font-weight: 700;
-    background: #e8f8f5;
+.table-glass td {
+    border: none;
     padding: 15px;
+    color: #e0e0e0;
+    vertical-align: middle;
+    background: transparent !important;
+}
+
+.table-glass td:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+.table-glass td:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+
+/* --- Badges & Totals --- */
+.badge-3d {
+    background: linear-gradient(135deg, #ff007f, #ff7eb3);
+    padding: 8px 12px;
     border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(255, 0, 127, 0.4);
+    transform: translateZ(25px);
+}
+
+.total-3d {
+    font-weight: 700;
+    color: #00ffcc;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
     display: inline-block;
     float: right;
-    margin-top: 15px !important;
+    background: rgba(0, 255, 204, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    transform: translateZ(30px);
 }
